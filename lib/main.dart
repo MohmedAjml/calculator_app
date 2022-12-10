@@ -14,6 +14,11 @@ class Calculator extends StatelessWidget {
       title: 'Calculator',
       theme: ThemeData(
         primarySwatch: Colors.teal,
+        brightness: Brightness.light
+      ),
+      darkTheme: ThemeData(
+        primarySwatch: Colors.teal,
+        brightness: Brightness.dark
       ),
       home: const Homepage(),
     );
@@ -74,12 +79,12 @@ class _HomepageState extends State<Homepage> {
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: OutlinedButton(
+        child: TextButton(
           onPressed: () => btclicked(btval),
           child: Text(
             // ignore: unnecessary_string_interpolations
             "$btval",
-            style: const TextStyle(fontSize: 30.0,color: Colors.white),
+            style: const TextStyle(fontSize: 30.0,),
           ),
         ),
       ),
@@ -89,64 +94,62 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:Colors.black,
+      //backgroundColor:Colors.black,
       appBar: AppBar(
         title: const Text(
           'Calculator',
         ),
       ),
-      body: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Expanded(
-              child: Container(
-                padding: const EdgeInsets.all(10.0),
-                alignment: Alignment.bottomRight,
-                child: Text(
-                  // ignore: unnecessary_string_interpolations
-                  "$texttodisplay",
-                  style: const TextStyle(
-                    fontSize: 25.0,
-                    fontWeight: FontWeight.w600,color:Colors.white,
-                  ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Expanded(
+            child: Container(
+              padding: const EdgeInsets.all(10.0),
+              alignment: Alignment.bottomRight,
+              child: Text(
+                // ignore: unnecessary_string_interpolations
+                "$texttodisplay",
+                style: const TextStyle(
+                  fontSize: 25.0,
+                  fontWeight: FontWeight.w600,color:Colors.white,
                 ),
               ),
             ),
-            Row(
-              children: [
-                custombutton("7"),
-                custombutton("8"),
-                custombutton("9"),
-                custombutton("+"),
-              ],
-            ),
-            Row(
-              children: [
-                custombutton("4"),
-                custombutton("5"),
-                custombutton("6"),
-                custombutton("-"),
-              ],
-            ),
-            Row(
-              children: [
-                custombutton("1"),
-                custombutton("2"),
-                custombutton("3"),
-                custombutton("x"),
-              ],
-            ),
-            Row(
-              children: [
-                custombutton("C"),
-                custombutton("0"),
-                custombutton("="),
-                custombutton("/"),
-              ],
-            ),
-          ],
-        ),
+          ),
+          Row(
+            children: [
+              custombutton("7"),
+              custombutton("8"),
+              custombutton("9"),
+              custombutton("+"),
+            ],
+          ),
+          Row(
+            children: [
+              custombutton("4"),
+              custombutton("5"),
+              custombutton("6"),
+              custombutton("-"),
+            ],
+          ),
+          Row(
+            children: [
+              custombutton("1"),
+              custombutton("2"),
+              custombutton("3"),
+              custombutton("x"),
+            ],
+          ),
+          Row(
+            children: [
+              custombutton("C"),
+              custombutton("0"),
+              custombutton("="),
+              custombutton("/"),
+            ],
+          ),
+        ],
       ),
     );
   }
